@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biryani Bliss</title>
+  <style>
+    
+    * { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    }
+    html, body {
+     height: 100%; 
+     width: 100%; 
+     scroll-behavior: smooth; 
+     font-family: Arial, sans-serif; 
+     line-height: 1.6; 
+     }
+    body {
+     display: flex; 
+     flex-direction: column; 
+     }
+
+   
+    nav {
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%;
+      background: darkred; 
+      padding: 10px 20px;
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+      color: white; 
+      transition: background 0.3s; 
+      z-index: 1000;
+    }
+    nav.scrolled 
+    { 
+    background: black; 
+    }
+    .logo {
+     font-size: 20px; 
+     font-weight: bold; 
+     color: gold; 
+     }
+    nav a 
+    {
+     color: white;
+      text-decoration: none;
+       margin: 0 10px; 
+       }
+    nav a:hover
+     {
+     color: gold;
+      }
+
+    main 
+    {
+      flex: 1 1 auto;
+      margin-top: 60px;
+    }
+
+    .home-about {
+      display: flex;
+      align-items: center;
+      height: calc(100vh - 60px);
+    }
+
+    .home-img {
+      flex: 1;
+      background-image: url('IMG-20250829-WA0003.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+    }
+
+    .about-text {
+      flex: 1;
+      padding: 40px;
+      text-align: left;
+    }
+    .about-text h2 {
+      color: darkred;
+      margin-bottom: 20px;
+      font-size: 2.2em;
+    }
+    .about-text p {
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+    .about-text .btn {
+      display: inline-block;
+      background: gold; color: black;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .about-text .btn:hover { 
+    background: orange; 
+    }
+
+   
+    .menu, .contact {
+      margin-top:50px;
+      padding: 20px; 
+      text-align: center;
+    }
+    .menu h2, .contact h2 {
+     color: darkred; 
+     margin-bottom: 20px; 
+     }
+    .menu-items {
+      display: flex; 
+      flex-wrap: wrap;
+      justify-content: center; 
+      gap: 20px;
+    }
+    .menu-item {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px; 
+      width: 250px;
+      text-align: center; 
+      border: 1px solid #ddd;
+    }
+    .menu-item img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .order-btn {
+      margin-top: 10px;
+      background: darkred;
+      color: white; 
+      padding: 8px 15px;
+      border: none; 
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .order-btn:hover { 
+    background: black; 
+    }
+
+    form { 
+    max-width: 400px; 
+    margin: auto; 
+    display: flex; 
+    flex-direction: column; 
+    }
+    input, textarea {
+      margin: 10px 0; 
+      padding: 10px;
+      border: 1px solid #ccc; 
+      border-radius: 5px;
+    }
+    button {
+      background: darkred; 
+      color: white;
+      padding: 10px; 
+      border: none; 
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { 
+    background: black; 
+    }
+
+    footer {
+      background: darkred; 
+      color: white;
+      text-align: center; 
+      padding: 15px;
+    }
+    @media (max-width: 768px) {
+      .hero-about { 
+      flex-direction: column; 
+      height: auto; 
+      }
+      .hero-img { 
+      height: 300px; 
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="logo">Biryani Bliss</div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="home-about" id="home">
+      <div class="home-img"></div>
+      <div class="about-text">
+        <h2>About Us</h2>
+        <p>We bring you the authentic taste of Hyderabad with freshly cooked biryanis made from aromatic basmati rice, tender meat, and hand-picked spices.</p>
+        <a href="#menu" class="btn">Explore Menu</a>
+      </div>
+    </section>
+
+    <section class="menu" id="menu">
+      <h2>Our Menu</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img src="chicken.jpeg" alt="Chicken Biryani">
+          <h3>Chicken Biryani</h3>
+          <p>Spicy and flavorful chicken cooked with rice.</p>
+          <button class="order-btn" onclick="orderNow('Chicken Biryani')">Order Now</button>
+        </div>
+        <div class="menu-item">
+          <img src="mutton.jpeg" alt="Mutton Biryani">
+          <h3>Mutton Biryani</h3>
+          <p>Slow-cooked mutton with royal spices.</p>
+          <button class="order-btn" onclick="orderNow('Mutton Biryani')">Order Now</button>
+        </div>
+        <div class="menu-item">
+          <img src="veg.jpeg" alt="Veg Biryani">
+          <h3>Veg Biryani</h3>
+          <p>Aromatic spices with fresh vegetables.</p>
+          <button class="order-btn" onclick="orderNow('Veg Biryani')">Order Now</button>
+        </div>
+        <div class="menu-item">
+          <img src="paneer.jpeg" alt="Paneer Biryani">
+          <h3>Paneer Biryani</h3>
+          <p>Aromatic basmati rice layered with yogurt-marinated paneer</p>
+          <button class="order-btn" onclick="orderNow('Paneer Biryani')">Order Now</button>
+       </div>
+
+
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="4" placeholder="Your Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Biryani Bliss | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", function() {
+      if (window.scrollY > 50) navbar.classList.add("scrolled");
+      else navbar.classList.remove("scrolled");
+    });
+    function orderNow(item) {
+      alert(item + " Ordered Successfully!");
+    }
+  </script>
+</body>
+</html>
+
